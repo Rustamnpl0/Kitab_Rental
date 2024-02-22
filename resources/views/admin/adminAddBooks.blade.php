@@ -54,7 +54,17 @@
                             <div class="box-inn-sp admin-form">
 				<div class="sb2-2-add-blog sb2-2-1">
                     <h2>Add New Books</h2>
-                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <hr>
+                    @if (Session::get('sucess'))
+                    <div class="alert alert-sucess">
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    @if(Session::get('fail'))
+                    <div class="laert alert-danger">
+                        {{Session::get(' not success  ')}}
+                    </div>
+                    @endif
 
                     <ul class="nav nav-tabs tab-list">
                         <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true"><i class="fa fa-info" aria-hidden="true"></i> <span>Detail</span></a>
@@ -72,32 +82,41 @@
                                 <div class="bor">
       <form method="POST" action="add" enctype="multipart/form-data" id="AddForm" name="AddForm">
             @csrf
-    <div class="row">
+
+            <div class="row">
+        <div class="input-field col s12">
+            <input type="file" id="image" name="image" >
+            <label for="list-image">Image</label>
+        </div>
+  
+ 
         <div class="input-field col s12">
             <input id="list-title" type="text" class="validate" name="BooksName">
             <label for="list-title">Books Name</label>
         </div>
+        
         <div class="input-field col s12">
             <input id="list-genre" type="text" class="validate" name="genre">
             <label for="list-genre">Genre</label>
         </div>
     </div>
-    <div class="row">
+    
         <div class="input-field col s12">
             <input id="list-author" type="text" class="validate" name="author">
             <label for="list-author">Author</label>
         </div>
+       
         <div class="input-field col s12">
             <input id="list-publication" type="text" class="validate" name="date_of_publication">
             <label for="list-publication">Date of Publication</label>
         </div>
-    </div>
-    <div class="row">
+    
+    
         <div class="input-field col s12">
             <textarea id="list-description" class="materialize-textarea" name="description"></textarea>
             <label for="list-description">Description</label>
         </div>
-    </div>
+    
     <div class="row">
         <div class="input-field col s12">
             <textarea id="list-amount" class="materialize-textarea" name="amount"></textarea>
@@ -106,7 +125,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <select id="list-status" name="is_available">
+            <select id="list-status" name="isAvailable">
                 <option value="" disabled selected>Select Status</option>
                 <option value="1">Active</option>
                 <option value="2">De-Active</option>
@@ -114,12 +133,7 @@
             <label for="list-status">Status</label>
         </div>
     </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <input type="file" id="list-image" name="image" multiple>
-            <label for="list-image">Image</label>
-        </div>
-    </div>
+   
     <div class="row">
         <div class="input-field col s12">
             <button type="submit" class="waves-effect waves-light btn-large">Submit</button>
@@ -149,23 +163,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/custom.js"></script>
-    <script>
-        $("AddForm").submit(function(event){
-            event.preventDefault();
-            $.ajax({
-                url:'{{route("adminAddBooks")}}',
-                type:'post',
-                data:'',
-                dataType:'json',
-                sucess:function(response){
-
-                },error:function(jqXHR,exception){
-                    console.log("something went wrong")
-                }
-            })
-        });
-
-        </script>
+ 
 </body>
 
 

@@ -11,12 +11,12 @@ class Books extends Model
     protected $table ='books';
     protected $fillable =[
          'image',
-        'Books name',
+        'BooksName',
         'genre',
         'author',
-        'is available',
         'date_of_publication',
         'description',
-        'amount'
+        'amount',
+        'isAvailable'
     ];
 }
