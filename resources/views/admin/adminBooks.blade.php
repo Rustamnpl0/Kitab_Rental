@@ -53,191 +53,45 @@
                                 </div>
                                 <div class="tab-inn">
                                     <div class="table-responsive table-desi">
-                                        <table class="table table-hover">
-                                            <thead>
+                                        
+                                        <table class="table ">
+                                            <thead>    
                                                 <tr>
-                                                <tr>
-                                                    <th>Book_ID</th>
-                                                    <th>Image</th>
-                                                    <th>Books Name</th>
-													<th>Genre</th>
-                                                    <th>Author</th>
-													<th>Is_Available</th>
-                                                    <th>Date_Of_Publication</th>
-                                                    <th>Description</th>
-													<th>Status</th>
-													<th>View</th>
+                                                    <th scope ="col">ID</th>
+                                                    <th scope ="col">Image</th>
+                                                    <th scope ="col">Books Name</th>
+													<th scope ="col">Genre</th>
+                                                    <th scope ="col">Author</th>
+													<th scope ="col">Is_Available</th>
+                                                    <th scope ="col">Date_Of_Publication</th>
+                                                    <th scope ="col">Description</th>
+													<th scope ="col">Amount</th>
+													<th scope ="col">Created At</th>
+													
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <!-- @if(!empty($stores)) -->
+                                                    @foreach($stores as $texts)
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-1.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Aerospace Engineering</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Engineering</td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is engineering books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
+                                                    <th>{{$texts->id}}</th>
+                                                    <td><span class="list-img">{{$texts->image}}</span></td>
+                                                    <td>{{$texts->BooksName}}</td>
+                                                    <td>{{$texts->genre}}</td>
+                                                    <td>{{$texts->author}}</td>
+                                                    <td>{{$texts->isAvailable}}</td>
+                                                    <td>{{$texts->date_of_publication}}</td>
+													<td>{{$texts->description}}</td>
+                                                    <td>{{$texts->amount}}</td>
+                                                    <td>{{$texts->created_at}}</td>
+													<td><a href="edit_records/{{$texts->id}}"  class="btn btn-primary">Edit</a></td>
+                                                    <td><a href="delete_record/{{$texts->id}}"><button class="btn btn-danger">Delete</button></a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-5.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Fashion Technology</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>fashion </td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is fashion books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>3</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-2.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Agriculture Courses</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Agriculture</td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is agriculture books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>4</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-3.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Marine Engineering</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Ocean / Marine</td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is marine books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>5</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-4.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Building, Construction Management</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Construction</td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is civil engineering books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>6</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-1.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Aerospace Engineering</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Engineering</td>
-                                                    <td>ram</td>
-                                                    <td>true</td>
-                                                    <td>12 Aug 2018</td>
-													<td>this is  aerospace engineering books</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>7</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-5.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Fashion Technology</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Fashion</td>
-                                                    <td>30 Days(420hrs)</td>
-                                                    <td>01 Nov 2018</td>
-                                                    <td>01 Dec 2018</td>
-													<td>30</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                <td>8</td>
-                                                    <td><span class="list-img"><img src="images/course/sm-2.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Agriculture Courses</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Agriculture</td>
-                                                    <td>25 Days(420hrs)</td>
-                                                    <td>05 Jan 2018</td>
-                                                    <td>25 Jan 2018</td>
-													<td>25</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/course/sm-3.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Marine Engineering</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Ocean / Marine</td>
-                                                    <td>06 Months</td>
-                                                    <td>12 Feb 2018</td>
-                                                    <td>14 Aug 2018</td>
-													<td>68</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/course/sm-4.jpg" alt=""></span>
-                                                    </td>
-                                                    <td><a href="admin-course-details.html"><span class="list-enq-name">Building, Construction Management</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>Construction</td>
-                                                    <td>1 Year</td>
-                                                    <td>05 Mar 2018</td>
-                                                    <td>16 Mar 2018</td>
-													<td>72</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="admin-course-details.html" class="ad-st-view">Edit</a></td>
-                                                    <td><a href="admin-course-details.html" class="ad-st-view">Delete</a></td>
-                                                </tr>
+                                                
+                                                    @endforeach
+                                                <!-- @else -->
+                                                <!-- <tr><td>Not added.</td> </tr> -->
+                                                <!-- @endif -->
                                             </tbody>
                                         </table>
                                     </div>
@@ -249,7 +103,7 @@
             </div>
 
         </div>
-    </div>
+    
 
     <!--Import jQuery before materialize.js-->
     <script src="js/main.min.js"></script>

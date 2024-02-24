@@ -29,8 +29,8 @@ class booksController extends Controller
                 'isAvailable'=>'required',
                 
         ]);
-        $image=$request->file('image')->getClientOriginalName();
-        
+        $image=$request->file('image')->getClientOriginalExtension();
+
        $query =DB::table('books')->insert([
          
       
@@ -50,16 +50,62 @@ class booksController extends Controller
         return back()->with('something wrong');
        }
     }
-    public function store(){
+    public function store() {
+      
+         $stores = Books::all();
+    return view('admin.adminBooks',compact('stores'));
+
+        
+     }
+    // public function edit_records(){
+    //    $data= Books::find($id);
+    //    return view('admin.adminEditBooks',compact('data'));
+    // }
+    public function edit_records($id){
+         $data= Books::find($id);
+   
+      return view('admin.adminEditBooks',compact('data'));
+    }
+    
+    public function update(Request $request, $id){
+        $data= Books::find($id);
+        if(!$data) {
+            return back()->with('error', 'Book not found.');
+        }
+        $request->validate([
+            'image'=>'required|image',
+            'BooksName'=>'required',
+                'genre'=>'required',
+                'author'=>'required',
+                'date_of_publication'=>'required',
+                'description'=>'required',
+                'amount'=>'required',
+                'isAvailable'=>'required',
+                
+        ]);
+        $image=$request->file('image')->getClientOriginalExtension();
+
+        $data->update([
+         
+      
+        'image'=>$image,
+        'BooksName'=>$request->input('BooksName'),
+        'genre'=>$request->input('genre'),
+        'author'=>$request->input('author'),
+        'date_of_publication'=>$request->input('date_of_publication'),
+        'description'=>$request->input('description'),
+        'amount'=>$request->input('amount'),
+        'isAvailable'=>$request->input('isAvailable'),
+       ]);
+        
+       
+        return back()->with('something wrong');
+      
 
     }
-    public function edit(){
-
-    }
-    public function update(){
-
-    }
-    public function destory(){
+    public function delete_record($id){
+        Books::destroy($id);
+        return back();
 
     }
     

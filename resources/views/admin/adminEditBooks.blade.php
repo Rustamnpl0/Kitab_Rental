@@ -14,13 +14,13 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
     <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <!-- ALL CSS FILES -->
-    <link href="css/materialize.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/materialize.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-    <link href="css/style-mob.css" rel="stylesheet" />
+    <link href="/css/style-mob.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -80,53 +80,53 @@
                                     <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                                 </div>
                                 <div class="bor">
-      <form method="POST" action="add" enctype="multipart/form-data" id="AddForm" name="AddForm">
+                                <form method="POST" action="{{ isset($data) ? route('update', $data->id) : url()->current() }}" enctype="multipart/form-data" id="editForm" name="editForm">
             @csrf
 
             <div class="row">
         <div class="input-field col s12">
-            <input type="file" id="image" name="image" >
-            <label for="list-image">Image</label>
+            <input type="file" id="image" value="{{ isset($data) ? $data->image : '' }}"  name="image" >
+            <label for="list-image"></label>
         </div>
   
  
         <div class="input-field col s12">
-            <input id="list-title" type="text" class="validate" name="BooksName">
-            <label for="list-title">Books Name</label>
+            <input id="list-title" value="{{ isset($data) ? $data->BooksName : '' }}"  type="text" class="validate" name="BooksName">
+            <label for="list-title"></label>
         </div>
         
         <div class="input-field col s12">
-            <input id="list-genre" type="text" class="validate" name="genre">
-            <label for="list-genre">Genre</label>
+            <input id="list-genre" type="text" class="validate" value="{{ isset($data) ? $data->genre : '' }}" name="genre">
+            <label for="list-genre"></label>
         </div>
     </div>
     
         <div class="input-field col s12">
-            <input id="list-author" type="text" class="validate" name="author">
-            <label for="list-author">Author</label>
+            <input id="list-author" type="text" class="validate" value="{{ isset($data) ? $data->author : '' }}"  name="author">
+            <label for="list-author"></label>
         </div>
        
         <div class="input-field col s12">
-            <input id="list-publication" type="text" class="validate" name="date_of_publication">
-            <label for="list-publication">Date of Publication</label>
+            <input id="list-publication" type="text" class="validate" value="{{ isset($data) ? $data->date_of_publication : '' }}"  name="date_of_publication">
+            <label for="list-publication"></label>
         </div>
     
     
         <div class="input-field col s12">
-            <textarea id="list-description" class="materialize-textarea" name="description"></textarea>
-            <label for="list-description">Description</label>
+            <textarea id="list-description" class="materialize-textarea"  value="{{ isset($data) ? $data->description : '' }}" name="description"></textarea>
+            <label for="list-description"></label>
         </div>
     
+   
+        <div class="input-field col s12">
+            <input id="list-amount" class="materialize-textarea"  value="{{ isset($data) ? $data->amount : '' }}" name="amount">
+            <label for="list-amount"></label>
+        </div>
+   
     <div class="row">
         <div class="input-field col s12">
-            <textarea id="list-amount" class="materialize-textarea" name="amount"></textarea>
-            <label for="list-amount">Amount</label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <select id="list-status" name="isAvailable">
-                <option value="" disabled selected>Select Status</option>
+            <select id="list-status" name="isAvailable" value="{{ isset($data) ? $data->isAvailable : '' }}">
+                <option  disabled selected>Select Status</option>
                 <option value="Active">Active</option>
                 <option value="De-Active">De-Active</option>
             </select>

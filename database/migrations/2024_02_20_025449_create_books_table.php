@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('isAvailable');
             $table->string('date_of_publication');
-            $table->string('description');
-            
+            $table->string('description');   
             $table->string('amount');
             $table->timestamps();
         });

@@ -63,6 +63,9 @@ class HomeController extends Controller
     public function adminBooks(){
         return view('admin.adminBooks');
     } 
+    public function adminEditBooks(){
+        return view('admin.adminEditBooks');
+    } 
     public function adminUser(){
         return view('admin.adminUser');
     } 
@@ -72,28 +75,7 @@ class HomeController extends Controller
     public function adminAddUser(){
         return view('admin.adminAddUser');
     } 
-    // public function adminAddBooks(Request $request){
-    //     $books = new Books();
-    //     if ($request->hasfile('image'))
-    //     {
-    //         $file =$request->file('image');
-    //         $ext =$file->getClientOriginalExtension();
-    //         $filename=time().'.'.$ext;
-    //         $file->move('images/bg'.$filename);
-    //         $books->image =$filename;
-
-    //     }
-    //     $books->name=$request->input('booksName');
-    //     $books->name=$request->input('genre');
-    //     $books->name=$request->input('author');
-    //     $books->name=$request->input('date_of_publication');
-    //     $books->name=$request->input('description');
-    //     $books->name=$request->input('amount');
-    //     $books->name=$request->input('isAvailable')==TRUE?'1':'0';
-    //     $books->save();
-    //     return redirect('/adminAddBooks')->with('status','books added sucessfully');
-
-    // } 
+    
   
 
 

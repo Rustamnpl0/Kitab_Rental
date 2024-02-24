@@ -4,7 +4,7 @@
             <div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
                 <a href="#" class="btn-close-menu"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <a href="#" class="atab-menu"><i class="fa fa-bars tab-menu" aria-hidden="true"></i></a>
-                <a href="" class="logo"><img src="images/logo.png" style="width: 120px; height: 90px" alt="" ></img>
+                <a href="" class="logo"><img src="/images/logo.png" style="width: 120px; height: 90px" alt="" ></img>
                 </a>
             </div>
             <!--== SEARCH ==-->
@@ -70,7 +70,7 @@
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i> All Books</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{route('adminBooks')}}">Available Books</a>
+                                    <li><a href="{{route('store')}}">Available Books</a>
                                     </li>
                                     <li><a href="{{route('adminAddBooks')}}">Add New Books</a>
                                     </li>

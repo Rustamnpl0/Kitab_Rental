@@ -33,7 +33,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [HomeController::class, 'index'])->name('admin');
-    Route::get('/adminBooks', [HomeController::class, 'adminBooks'])->name('adminBooks');
+    // Route::get('/adminBooks', [HomeController::class, 'adminBooks'])->name('adminBooks');
+    // Route::get('/adminEditBooks', [HomeController::class, 'adminEditBooks'])->name('adminEditBooks');
     Route::get('/adminUser', [HomeController::class, 'adminUser'])->name('adminUser');
     Route::get('/adminUserDetails', [HomeController::class, 'adminUserDetails'])->name('adminUserDetails');
     Route::get('/adminAddUser', [HomeController::class, 'adminAddUser'])->name('adminAddUser');
@@ -42,7 +43,11 @@ Route::middleware(['auth'])->group(function () {
 
     //  books record route
     Route::get('adminAddBooks', [booksController::class, 'books'])->name('adminAddBooks');
+    Route::get('/store', [booksController::class, 'store'])->name('store');
     Route::post('add', [booksController::class, 'add']);
+    Route::get('delete_record/{id}', [booksController::class, 'delete_record']);
+    Route::get('edit_records/{id}', [booksController::class, 'edit_records'])->name('edit_records');
+    Route::post('update/{id}', [booksController::class, 'update'])->name('update');
  
 });
 
