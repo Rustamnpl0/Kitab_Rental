@@ -53,7 +53,7 @@
                         <div class="col-md-12">
                             <div class="box-inn-sp admin-form">
 				<div class="sb2-2-add-blog sb2-2-1">
-                    <h2>Add New Books</h2>
+                    {{$title}}
                     <hr>
                     @if (Session::get('sucess'))
                     <div class="alert alert-sucess">
@@ -80,46 +80,46 @@
                                     <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
                                 </div>
                                 <div class="bor">
-      <form method="POST" action="add" enctype="multipart/form-data" id="AddForm" name="AddForm">
+      <form method="POST" action="{{$url}}" enctype="multipart/form-data" id="AddForm" name="AddForm">
             @csrf
 
             <div class="row">
         <div class="input-field col s12">
-            <input type="file" id="image" name="image" >
+            <input type="file" id="image" name="image" value="{{ isset($stores) ? $stores->image : '' }}"/>
             <label for="list-image">Image</label>
         </div>
   
  
         <div class="input-field col s12">
-            <input id="list-title" type="text" class="validate" name="BooksName">
+            <input id="list-title" type="text" class="validate" name="BooksName" value="{{ isset($stores) ? $stores->BooksName : '' }}"">
             <label for="list-title">Books Name</label>
         </div>
         
         <div class="input-field col s12">
-            <input id="list-genre" type="text" class="validate" name="genre">
+            <input id="list-genre" type="text" class="validate" name="genre" value="{{ isset($stores) ? $stores->genre : '' }}">
             <label for="list-genre">Genre</label>
         </div>
     </div>
     
         <div class="input-field col s12">
-            <input id="list-author" type="text" class="validate" name="author">
+            <input id="list-author" type="text" class="validate" name="author"value="{{ isset($stores) ? $stores->author : '' }}">
             <label for="list-author">Author</label>
         </div>
        
         <div class="input-field col s12">
-            <input id="list-publication" type="text" class="validate" name="date_of_publication">
+            <input id="list-publication" type="text" class="validate" name="date_of_publication" value="{{ isset($stores) ? $stores->date_of_publication : '' }}">
             <label for="list-publication">Date of Publication</label>
         </div>
     
     
         <div class="input-field col s12">
-            <textarea id="list-description" class="materialize-textarea" name="description"></textarea>
+            <textarea id="list-description" class="materialize-textarea" name="description" >{{ isset($stores) ? $stores->description : '' }}</textarea>
             <label for="list-description">Description</label>
         </div>
     
     <div class="row">
         <div class="input-field col s12">
-            <textarea id="list-amount" class="materialize-textarea" name="amount"></textarea>
+            <input id="list-amount" class="materialize-textarea" name="amount" value="{{ isset($stores) ? $stores->amount : '' }}">
             <label for="list-amount">Amount</label>
         </div>
     </div>
@@ -127,8 +127,9 @@
         <div class="input-field col s12">
             <select id="list-status" name="isAvailable">
                 <option value="" disabled selected>Select Status</option>
-                <option value="Active">Active</option>
-                <option value="De-Active">De-Active</option>
+                <option value="Active"  {{ isset($stores) && $stores->isAvailable == "Active" ? "selected" : "" }}><label for="Active">Active</label></option>
+               
+                <option value="De-Active" {{ isset($stores) && $stores->isAvailable == "De-Active" ? "checked" : "" }}>De-Active</option>
             </select>
             <label for="list-status">Status</label>
         </div>

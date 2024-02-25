@@ -67,7 +67,8 @@ class HomeController extends Controller
         return view('admin.adminEditBooks');
     } 
     public function adminUser(){
-        return view('admin.adminUser');
+       $users =User::all();
+       return view('admin.adminUser', compact('users'));
     } 
     public function adminUserDetails(){
         return view('admin.adminUserDetails');

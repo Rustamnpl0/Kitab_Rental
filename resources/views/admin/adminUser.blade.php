@@ -62,138 +62,35 @@
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>User</th>
-                                                    <th>Name</th>
-                                                    <th>Phone</th>
-                                                    <th>Email</th>
-                                                    <th>Country</th>
-                                                    <th>Id</th>
-                                                    <th>Date of birth</th>
-													<th>Status</th>
-													<th>View</th>
+                                                <th>User ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <!-- <th>Password</th> -->
+                                            <th>Type</th>
+                                            <th>Date of Birth</th>
+                                            <th>Gender</th>
+                                            <th>Phone</th>
+                                            <th>Action</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach ($users as $user)
                                                 <tr>
-                                                    <td><span class="list-img"><img src="images/user/1.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Marsha Hogan</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 3214 6522</td>
-                                                    <td>chadengle@dummy.com</td>
-                                                    <td>united states</td>
-                                                    <td>ST17241</td>
-													<td>03 Jun 1990</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
+                                                    
+                                                <td>{{ $user->id }}</td>
+                                            <td>{{ $user->firstname }}</td>
+                                            <td>{{ $user->lastname }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <!-- <td>{{ $user->password }}</td> Note: You should not directly display passwords in a table in a real application -->
+                                            <td>{{ $user->type }}</td>
+                                            <td>{{ $user->dob }}</td>
+                                            <td>{{ $user->gender }}</td>
+                                            <td>{{ $user->phone }}</td>
+                                            <td><a href="{{ route('adminUserDetails', ['id' => $user->id]) }}" class="ad-st-view">View</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/2.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Lucas Caden</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>lucas@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST10231</td>
-													<td>16 Feb 1987</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/4.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Ethan Oliver</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>Ethan@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST32168</td>
-													<td>21 Jun 1992</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/5.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Ethan Oliver</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>Ethan@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST32168</td>
-													<td>21 Jun 1992</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/1.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Marsha Hogan</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 3214 6522</td>
-                                                    <td>chadengle@dummy.com</td>
-                                                    <td>united states</td>
-                                                    <td>ST17241</td>
-													<td>03 Jun 1990</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/2.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Lucas Caden</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>lucas@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST10231</td>
-													<td>16 Feb 1987</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/4.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Ethan Oliver</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>Ethan@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST32168</td>
-													<td>21 Jun 1992</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span class="list-img"><img src="images/user/5.png" alt=""></span>
-                                                    </td>
-                                                    <td><a href="#"><span class="list-enq-name">Ethan Oliver</span><span class="list-enq-city">Illunois, United States</span></a>
-                                                    </td>
-                                                    <td>+01 8574 6854</td>
-                                                    <td>Ethan@gmail.com</td>
-                                                    <td>Illinois</td>
-                                                    <td>ST32168</td>
-													<td>21 Jun 1992</td>
-                                                    <td>
-                                                        <span class="label label-success">Active</span>
-                                                    </td>
-													<td><a href="{{route('adminUserDetails')}}" class="ad-st-view">View</a></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

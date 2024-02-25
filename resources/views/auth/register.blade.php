@@ -4,10 +4,31 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-label for="firstname" :value="__('FirstName')" />
+            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
         </div>
+        <div>
+            <x-input-label for="lastname" :value="__('LastName')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="dob" :value="__('Date_Of_Birth')" />
+            <x-text-input id="dob" class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" required autofocus autocomplete="dob" />
+            <x-input-error :messages="$errors->get('dob')" class="mt-2" />
+        </div>
+        <div>
+        <x-input-label for="gender" :value="__('Gender')" />
+        <select id="gender" class="block mt-1 w-full" name="gender" required autocomplete="gender">
+        <option value="">Select Gender</option>
+        <option value="Male" @if(old('gender') == 'Male') selected @endif>Male</option>
+        <option value="Female" @if(old('gender') == 'Female') selected @endif>Female</option>
+        <option value="Other" @if(old('gender') == 'Other') selected @endif>Other</option>
+    </select>
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+        </div>
+        
 
         <!-- Email Address -->
         <div class="mt-4">
