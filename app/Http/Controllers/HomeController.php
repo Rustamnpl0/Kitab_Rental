@@ -38,7 +38,8 @@ class HomeController extends Controller
         return view('home.aboutus');
     } 
     public function allBooks(){
-        return view('home.allBooks');
+        $books = Books::all();
+        return view('home.allBooks',compact('books'));
     } 
     public function donate(){
         return view('home.donate');

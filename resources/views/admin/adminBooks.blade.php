@@ -75,7 +75,7 @@
                                                     @foreach($stores as $texts)
                                                 <tr>
                                                     <th>{{$texts->id}}</th>
-                                                    <td><span class="list-img">{{$texts->image}}</span></td>
+                                                    <td><img src="{{ asset($texts->image) }}" alt="Book Image"  width="80" height="60"></td>
                                                     <td>{{$texts->BooksName}}</td>
                                                     <td>{{$texts->genre}}</td>
                                                     <td>{{$texts->author}}</td>

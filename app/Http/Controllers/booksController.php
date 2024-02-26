@@ -32,12 +32,13 @@ class booksController extends Controller
                 'isAvailable'=>'required',
                 
         ]);
-        $image=$request->file('image')->getClientOriginalExtension();
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
 
        $query =DB::table('books')->insert([
          
       
-        'image'=>$image,
+        'image' => 'images/'.$imageName,
         'BooksName'=>$request->input('BooksName'),
         'genre'=>$request->input('genre'),
         'author'=>$request->input('author'),
@@ -80,7 +81,7 @@ class booksController extends Controller
     
     public function update(Request $request, $id){
       $data= Books::find($id);
-      $data ->image=$request['image'];
+      $data->image = $request->file('image')->store('images');
       $data ->BooksName=$request['BooksName'];
       $data ->genre=$request['genre'];
       $data ->author=$request['author'];
