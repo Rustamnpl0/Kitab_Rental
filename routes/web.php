@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/donate', [HomeController::class, 'donate'])->name('donate');
     Route::get('/booksDetails', [HomeController::class, 'booksDetails'])->name('booksDetails');
     Route::get('/userprofile', [HomeController::class, 'userprofile'])->name('userProfile');
+    Route::get('search', [HomeController::class, 'search'])->name('search');
 });
 
 
@@ -44,10 +45,10 @@ Route::middleware(['auth'])->group(function () {
     //  books record route
     Route::get('adminAddBooks', [booksController::class, 'books'])->name('adminAddBooks');
     Route::get('/store', [booksController::class, 'store'])->name('store');
-    Route::post('add', [booksController::class, 'add']);
+    Route::post('/add', [booksController::class, 'add']);
     Route::get('delete_record/{id}', [booksController::class, 'delete_record']);
     Route::get('edit_records/{id}', [booksController::class, 'edit_records'])->name('edit_records');
-    Route::post('update/{id}', [booksController::class, 'update'])->name('update');
+    Route::post('/update/{id}', [booksController::class, 'update'])->name('update');
  
 });
 

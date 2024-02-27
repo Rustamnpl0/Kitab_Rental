@@ -51,6 +51,23 @@ class HomeController extends Controller
     public function booksDetails(){
         return view('home.booksDetails');
     } 
+    public function search(Request $request){
+        $searchTerm = $request->input('search'); // Get the search term from the request
+    
+        // Check if search term exists
+        if ($searchTerm) {
+            // Use where() method to filter Books by the search term
+            $searchPro = Books::where('BooksName', 'LIKE', '%'.$searchTerm.'%')->get();
+    
+            // Return the view with the search results
+            return view('home.search', compact('searchPro'));
+        } else {
+            // If search term is empty, redirect back with a message
+            return redirect()->back()->with('message', 'Empty search');
+        }
+    }
+       
+    
 
 
 

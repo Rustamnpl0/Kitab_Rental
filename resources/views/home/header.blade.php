@@ -179,30 +179,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="search-form">
-                            <form>
+                            <form method="get" action="{{route('search')}}">
                                 <div class="sf-type">
                                     <div class="sf-input">
-                                        <input type="text" id="sf-box" placeholder="Search new and most rated Books">
-                                    </div>
-                                    <div class="sf-list">
-                                        <ul>
-                                            <li><a href="course-details.html">Accounting/Finance</a></li>
-                                            <li><a href="course-details.html">civil engineering</a></li>
-                                            <li><a href="course-details.html">Art/Design</a></li>
-                                            <li><a href="course-details.html">Marine Engineering</a></li>
-                                            <li><a href="course-details.html">Business Management</a></li>
-                                            <li><a href="course-details.html">Journalism/Writing</a></li>
-                                            <li><a href="course-details.html">Physical Education</a></li>
-                                            <li><a href="course-details.html">Political Science</a></li>
-                                            <li><a href="course-details.html">Sciences</a></li>
-                                            <li><a href="course-details.html">Statistics</a></li>
-                                            <li><a href="course-details.html">Web Design/Development</a></li>
-                                            <li><a href="course-details.html">SEO</a></li>
-                                            <li><a href="course-details.html">Google Business</a></li>
-                                            <li><a href="course-details.html">Graphics Design</a></li>
-                                            <li><a href="course-details.html">Networking Courses</a></li>
-                                            <li><a href="course-details.html">Information technology</a></li>
-                                        </ul>
+                                        <input type="text" name="search" id="sf-box" placeholder="Search new and most rated Books" value="{{Request::get('search')}}"/>
                                     </div>
                                 </div>
                                 <div class="sf-submit">
