@@ -14,13 +14,13 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
     <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <!-- ALL CSS FILES -->
-    <link href="css/materialize.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/materialize.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
-    <link href="css/style-mob.css" rel="stylesheet" />
+    <link href="/css/style-mob.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,16 +40,17 @@
     <section>
         <div class="container com-sp pad-bot-70 pg-inn">
             <div class="row">
+        
                 <div class="cor">
                 
                     <div class="col-md-12">
                         <div class="cor-mid-img">
-                            <img src="images/course.jpg" alt="">
+                        <img src="{{ asset($books->image) }}" alt="Book Image" >
                         </div>
                         <div class="cor-con-mid">
                             <div class="cor-p1">
-                                <h2>Biological Sciences</h2>
-                                <span>Category: Software Testing</span>
+                            <h3>{{$books->BooksName}}</h3>
+                            <!-- <p>{{$books->description}}</p> <span class="home-top-cour-rat"></span> -->
                                 <div class="share-btn">
                                     <ul>
                                         <li><a href="#"><i class="fa fa-facebook fb1"></i> Share On Facebook</a>
@@ -63,11 +64,7 @@
                             </div>
                             <div class="cor-p4">
                                 <h3>Course Details:</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going
-                                    to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making
-                                    this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem
-                                    Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-                                <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                <p>{{$books->description}}</p> <span class="home-top-cour-rat"></span>
                             </div>
                            
                             <div class="cor-p6">
@@ -146,6 +143,7 @@
                     
                 </div>
             </div>
+           
         </div>
     </section>
     <!--SECTION END-->
@@ -177,15 +175,7 @@
     <!--HEADER SECTION-->
     <section class="wed-hom-footer">
         <div class="container">
-            <!--<div class="row">
-				<div class="col-md-12">
-				<h4>About Wedding Planner</h4>
-				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum</p>
-				<p>more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-				<p></p>
-			  </div>
-			  </div>-->
+           
             <div class="row wed-foot-link">
                 <div class="col-md-4 foot-tc-mar-t-o">
                     <h4>Top Courses</h4>

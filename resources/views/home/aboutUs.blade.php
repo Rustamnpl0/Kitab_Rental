@@ -112,6 +112,8 @@
 
     <!--SECTION START-->
     <section>
+
+        @include('home.review')
         @include('home.footer')
     </section>
 

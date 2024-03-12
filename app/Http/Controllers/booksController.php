@@ -101,5 +101,13 @@ class booksController extends Controller
     }
     
 
+    // public function booksDetails() {
+    //     // Assuming $booksDetails is a collection of book details from your database
+    //     $booksDetail = Books::all(); // Example: Retrieve all books from the database
+    
+    //     // Pass the $booksDetails variable to the view
+    //     return view('booksDetails', compact('booksDetail'));
+    // }
+
    
 }

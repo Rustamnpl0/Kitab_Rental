@@ -44,14 +44,14 @@
                 </div>
             </div>
             <div class="row">
-            @foreach($books as $books)
+                @foreach($Books as $books)
                 <div class="col-md-6">
                     <div>
                         <!--POPULAR COURSES--> 
                        
                         <div class="home-top-cour">
                             <!--POPULAR COURSES IMAGE-->
-                            <div class="col-md-3"><img src="{{ asset($books->image) }}" alt="Book Image" > </div>
+                            <div class="col-md-3"><img src="{{ asset($books->image) }}" alt="Book Image" > <a href="{route('booksDetails')}}"></img></div>
                             <!--POPULAR COURSES: CONTENT-->
                             <div class="col-md-9 home-top-cour-desc">
                                 <a href="course-details.html">
@@ -61,7 +61,7 @@
                                 <p>{{$books->description}}</p> <span class="home-top-cour-rat"></span>
                                 <div class="hom-list-share">
                                     <ul>
-                                        <li><a href="{route('booksDetails')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Book Now</a> </li>
+                                        <li><a href="{{route('booksDetails',$books->id)}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Book details</a> </li>
                                         <li><a href="course-details.html"><i class="fa fa-eye" aria-hidden="true"></i>04 Aavailable</a> </li>
                                         <li><a href="course-details.html"><i class="fa fa-share-alt" aria-hidden="true"></i> 1020</a> </li>
                                     </ul>
@@ -74,6 +74,12 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+            <div class="pagination ">
+                
+                <div class="d-flex justify-content-center">
+                    {{ $Books->links() }}
+                </div>
             </div>
         </div>
     </section>
@@ -88,6 +94,9 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/custom.js"></script>
+
+    
+    
 </body>
 
 

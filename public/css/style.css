@@ -561,8 +561,8 @@
      padding: 80px 0px 65px 0px;
      background: #002147;
 }
- .wed-hom-footer h4{
-     font-size: 14px;
+ .wed-hom-footer h2{
+     font-size: 24px;
      color: #d6d6d6;
      padding-bottom: 25px;
      text-transform: uppercase;
@@ -3749,7 +3749,7 @@ left: 0;
      background: url(../images/seminar-bg.jpg);
      position: relative;
      overflow: hidden;
-     padding:100px 0px 100px 0px;
+     padding:100px 100px 100px 100px;
      background-size: cover;
 }
  .p-semi:before {
@@ -3762,8 +3762,13 @@ left: 0;
      width: 100%;
 }
  .semi-inn{
-     width: 75%;
+     width: 100%;
      margin: 0 auto;
+}
+.semi-inn h4{
+    color: #ffffff;
+    position: relative;
+    padding:10px 100px 10px 20px;
 }
  .semi-com {
      float:left;
@@ -3909,6 +3914,7 @@ left: 0;
      position: relative;
      text-align: center;
 }
+
  .head-2-inn h1{
      margin-top: 0px;
      color: #fff;

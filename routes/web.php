@@ -23,11 +23,18 @@ Route::post('/logout', 'Auth\AuthenticatedSessionController@destroy')->name('log
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
     Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutUs');
     Route::get('/allbooks', [HomeController::class, 'allbooks'])->name('allBooks');
     Route::get('/donate', [HomeController::class, 'donate'])->name('donate');
-    Route::get('/booksDetails', [HomeController::class, 'booksDetails'])->name('booksDetails');
+    Route::get('/booksDetails/{id}', [HomeController::class, 'booksDetails'])->name('booksDetails');
+   
     Route::get('/userprofile', [HomeController::class, 'userprofile'])->name('userProfile');
+    Route::post('/addreview', [HomeController::class, 'addreview'])->name('addreview');
+    Route::get('/addreview', [HomeController::class, 'addreview'])->name('addreview');
+    Route::get('/review', [HomeController::class, 'review'])->name('review');
+    Route::get('/reviewform', [HomeController::class, 'reviewform'])->name('reviewform');
+    Route::get('/storereview', [HomeController::class, 'storereview']);
     Route::get('search', [HomeController::class, 'search'])->name('search');
 });
 
