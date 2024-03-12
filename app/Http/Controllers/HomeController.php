@@ -106,6 +106,18 @@ class HomeController extends Controller
         $books = Books::find($id);
         return view('home.booksDetails',compact('books'));
     } 
+    public function categories($genre){
+        // Assuming you have a 'genre' column in your 'books' table
+        $books = Books::where('genre', $genre)->get();
+    
+        // Check if any books were found for the given genre
+        if($books->isEmpty()) {
+            // If no books found for the genre, you may want to handle this case
+            return redirect()->back()->with('error', 'No books found for the selected genre.');
+        }
+    
+        return view('home.category', compact('books', 'genre'));
+    }
     public function search(Request $request){
         $searchTerm = $request->input('search'); // Get the search term from the request
     

@@ -49,7 +49,7 @@
                         </div>
                         <div class="cor-con-mid">
                             <div class="cor-p1">
-                            <h3>{{$books->BooksName}}</h3>
+                            <h3>Name:  {{$books->BooksName}}</h3>
                             <!-- <p>{{$books->description}}</p> <span class="home-top-cour-rat"></span> -->
                                 <div class="share-btn">
                                     <ul>
@@ -62,11 +62,39 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="cor-p4">
-                                <h3>Course Details:</h3>
-                                <p>{{$books->description}}</p> <span class="home-top-cour-rat"></span>
+                            <div class="cor-con-mid">
+                            <h3>Genre:  {{$books->genre}}</h3>
+                            <h3>Author:  {{$books->author}}</h3>
+                            <h3>Date Of Publication:  {{$books->date_of_publication}}</h3>
+                                <h3>Books Details:</h3>
+                                <span></span>
+                                <h4>{{$books->description}}</h4> <span class="home-top-cour-rat"></span> 
                             </div>
-                           
+                            <h3>price:  {{$books->amount}}</h3>
+
+
+
+
+                            <section>
+        <div class="full-bot-book">
+            <div class="container">
+                <div class="row">
+                    <div class="bot-book">
+                        <div class="col-md-2 bb-img">
+                            <img src="images/3.png" alt="">
+                        </div>
+                        <div class="col-md-7 bb-text">
+                            <h4>Want to Borrow Book</h4>
+                            <p>Please carefully submit the dat to get the Books</p>
+                        </div>
+                        <div class="col-md-3 bb-link">
+                            <a href="course-details.html">Borrow Books</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
                             <div class="cor-p6">
                                 <h3>Student Reviews</h3>
                                 <div class="cor-p6-revi">
@@ -150,26 +178,7 @@
 
 
     <!--SECTION START-->
-    <section>
-        <div class="full-bot-book">
-            <div class="container">
-                <div class="row">
-                    <div class="bot-book">
-                        <div class="col-md-2 bb-img">
-                            <img src="images/3.png" alt="">
-                        </div>
-                        <div class="col-md-7 bb-text">
-                            <h4>therefore always free from repetition</h4>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                        </div>
-                        <div class="col-md-3 bb-link">
-                            <a href="course-details.html">Book This Course</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!--SECTION END-->
 
     <!--HEADER SECTION-->

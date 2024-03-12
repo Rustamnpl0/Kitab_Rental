@@ -49,7 +49,7 @@
                     <div class="carousel-caption slider-con">
                         <h2><span>Available Books</span></h2>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                        <a href="#" class="bann-btn-1">Order</a><a href="{{route('allBooks')}}" class="bann-btn-2">Read More</a>
+                        <a href="{{route('allBooks')}}" class="bann-btn-1">Order</a><a href="{{route('allBooks')}}" class="bann-btn-2">Read More</a>
                     </div>
                 </div>
                 <div class="item">
@@ -109,7 +109,7 @@
                 <div class="ed-course">
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="ed-course-in">
-                            <a class="course-overlay" href="about.html">
+                            <a class="course-overlay" href="{{route('categories',['genre' => 'fantasy'])}}">
                                 <img src="images/h-about.jpg" alt="">
                                 <span>History</span>
                             </a>

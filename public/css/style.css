@@ -1866,7 +1866,7 @@
 /*-------------------------------------------------*/
  .full-bot-book{
      background: #f36b3b;
-     padding: 40px 0px;
+     padding: 20px 10px;
      position: relative;
      overflow: hidden;
 }
@@ -1900,9 +1900,17 @@
  .bb-link a{
      border: 1px solid #fff;
      color: #fff;
-     border-radius: 50px;
+     border-radius: 120px;
      padding: 15px 20px;
      line-height: 60px;
+     font-size: 20px ;
+}
+.bb-link a:hover{
+    border: 1px solid #1a0a61;
+    color: #20084d;
+    border-radius: 120px;
+    padding: 15px 20px;
+    line-height: 60px;
 }
 
 /*-------------------------------------------------*/

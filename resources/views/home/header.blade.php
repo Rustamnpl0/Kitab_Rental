@@ -22,7 +22,7 @@
                             <ul>
                                 <li><a href="{{route('home')}}">Home</a></li>
                                 <li><a href="{{route('aboutUs')}}">About us</a></li>
-                                <li><a href="admission.html">Our Services</a></li>
+                                <li><a href="">Our Services</a></li>
                                 <li><a href="{{route('allBooks')}}">Available Books</a></li>
                                 <li><a href="course-details.html">Donate Books</a></li>
                                 <li><a href="awards.html">Profile</a></li>
@@ -107,40 +107,40 @@
                                     
                                 </li>
                                 <li class="admi-menu">
-                                    <a href="#" class="mm-arr">Our Services</a>
+                                    <a href="" class="mm-arr">Our Services</a>
                                     <!-- MEGA MENU 1 -->
                                     <div class="mm-pos">
                                         <div class="admi-mm m-menu">
                                             <div class="m-menu-inn">
                                                 <div class="mm2-com mm1-com mm1-s1">
                                                     <div class="ed-course-in">
-                                                        <a class="course-overlay" href="about.html">
-                                                            <img src="images/h-about1.jpg" alt="">
+                                                        <a class="course-overlay" href="{{route('aboutUs')}}">
+                                                            <img src="images/h-about1.jpg" href="{{route('aboutUs')}}">
                                                             <span>Academics</span>
                                                         </a>
                                                     </div>
                                                     <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="about.html" class="mm-r-m-btn">Read more</a>
+                                                    <a href="{{route('aboutUs')}}"class="mm-r-m-btn">Read more</a>
                                                 </div>
                                                 <div class="mm2-com mm1-com mm1-s1">
                                                     <div class="ed-course-in">
-                                                        <a class="course-overlay" href="admission.html">
+                                                        <a class="course-overlay" href="">
                                                             <img src="images/h-adm1.jpg" alt="">
                                                             <span>rent & return</span>
                                                         </a>
                                                     </div>
                                                     <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="admission.html" class="mm-r-m-btn">Read more</a>
+                                                    <a href="" class="mm-r-m-btn">Read more</a>
                                                 </div>
                                                 <div class="mm2-com mm1-com mm1-s1">
                                                     <div class="ed-course-in">
-                                                        <a class="course-overlay" href="awards.html">
-                                                            <img src="images/h-cam1.jpg" alt="">
+                                                        <a class="course-overlay" >
+                                                            <img src="images/h-cam1.jpg" alt="" href="{{route('allBooks')}}">
                                                             <span>History & awards</span>
                                                         </a>
                                                     </div>
                                                     <p>Donec lacus libero, rutrum ac sollicitudin sed, mattis non eros. Vestibulum congue nec eros quis lacinia. Mauris non tincidunt lectus. Nulla mollis, orci vitae accumsan rhoncus.</p>
-                                                    <a href="awards.html" class="mm-r-m-btn">Read more</a>
+                                                    <a href="{{route('allBooks')}}" class="mm-r-m-btn">Read more</a>
                                                 </div>
                                                 <div class="mm2-com mm1-com mm1-s4">
                                                     <div class="ed-course-in">
