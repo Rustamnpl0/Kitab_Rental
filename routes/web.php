@@ -28,8 +28,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/allbooks', [HomeController::class, 'allbooks'])->name('allBooks');
     Route::get('/donate', [HomeController::class, 'donate'])->name('donate');
     Route::get('/booksDetails/{id}', [HomeController::class, 'booksDetails'])->name('booksDetails');
+    Route::post('/addCart/{id}', [HomeController::class, 'addCart'])->name('addCart');
     Route::get('/categories/{genre}', [HomeController::class, 'categories'])->name('categories');
+    Route::get('deletecart/{id}', [HomeController::class,'deletecart']);
    
+    Route::get('/storeCart', [HomeController::class, 'storeCart'])->name('storeCart');
     Route::get('/userprofile', [HomeController::class, 'userprofile'])->name('userProfile');
     Route::post('/addreview', [HomeController::class, 'addreview'])->name('addreview');
     Route::get('/addreview', [HomeController::class, 'addreview'])->name('addreview');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Cart;
 use App\Models\reviews;
 use App\Models\Books;
 
@@ -20,7 +21,9 @@ class HomeController extends Controller
             if ($type=='user')
             {
                 $books = Books::paginate(6);
-                return view('home.homepage',compact('books'));
+                $user=auth()->user();
+                $count=Cart::where('phone',$user->phone)->count();
+                return view('home.homepage',compact('books','count'));
             }
 
             else if ($type=='admin'){
@@ -46,14 +49,74 @@ class HomeController extends Controller
         $Books = Books::paginate(8);
         return view('home.allBooks',compact('Books'));
     } 
+
+
+
+
+    public function addCart(Request $request, $id){
+        if (Auth::id()){
+            $user=auth()->user();
+            $books=Books::find($id);
+
+
+
+            $cart=new cart;
+            $cart->firstname=$user->firstname;
+           
+            $cart->phone=$user->phone;
+            $cart->email=$user->email;
+            $cart->address=$user->address;
+            $cart->BooksName=$books->BooksName;
+            $cart->image=$books->image;
+            $cart->price=$books->amount;
+            $cart->save();
+            return redirect()->back();
+            
+
+    }
+    else{
+        return redirect('login');
+    }
+    } 
+
+
+    public function storeCart(){
+        $carts = DB::table('carts')->get();
+ 
+        return view('home.cart', compact('carts'));
+        
+     
+    }
+    public function deletecart($id){
+        $cart=DB::table('carts')->delete($id);
+        return back();
+
+    }
+
+
+
+
+
+
+
+
     public function donate(){
         return view('home.donate');
     } 
+
+
+
+
      public function review(){
         // $url = url('/addreview');
         $reviewstores = reviews::all();
         return view('home.reviewform',compact('reviewstores'));
      }
+
+
+
+
+
     public function addreview(Request $request)
     {
         // Validate the form data
@@ -99,13 +162,21 @@ class HomeController extends Controller
        
     }
 
+
     public function userProfile(){
-        return view('home.userProfile');
+        $user=Auth::User();
+        return view('home.userProfile',compact('user'));
     } 
+
+
+
     public function booksDetails($id){
         $books = Books::find($id);
         return view('home.booksDetails',compact('books'));
-    } 
+    }
+    
+    
+
     public function categories($genre){
         // Assuming you have a 'genre' column in your 'books' table
         $books = Books::where('genre', $genre)->get();
@@ -118,6 +189,9 @@ class HomeController extends Controller
     
         return view('home.category', compact('books', 'genre'));
     }
+
+
+
     public function search(Request $request){
         $searchTerm = $request->input('search'); // Get the search term from the request
     

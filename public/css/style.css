@@ -1897,15 +1897,16 @@
      position: relative;
      overflow: hidden;
 }
- .bb-link a{
-     border: 1px solid #fff;
-     color: #fff;
-     border-radius: 120px;
+ .bb-link input{
+     border: 1px solid #c888290f;
+     color: #220558;
+     
+     border-radius: 90px;
      padding: 15px 20px;
      line-height: 60px;
      font-size: 20px ;
 }
-.bb-link a:hover{
+.bb-link input:hover{
     border: 1px solid #1a0a61;
     color: #20084d;
     border-radius: 120px;

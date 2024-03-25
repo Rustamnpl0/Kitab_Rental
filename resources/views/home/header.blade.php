@@ -160,9 +160,13 @@
                                 <li><a href="{{route('allBooks')}}">Available Books</a></li>
                                 <li><a class='dropdown-button ed-sub-menu' href='{{route('donate')}}' data-activates='dropdown1'>Donate Books</a></li>
                                
-                                <li><a href="{{route('userProfile')}}">Profile</a>
+                                <li><a href="{{route('userProfile')}}">Profile</a></li>
+
+                                <li><a href=""></a>
                                 </li>
-                                <!-- <li><a href="contact-us.html">Contact us</a> -->
+                                <li><a href=""></a>
+                                </li>
+                                <li><i class="fa-shopping-basket"></i><a href="{{route('storeCart')}}">Cart</a>
                                 </li>
                             </ul>
                         </div>

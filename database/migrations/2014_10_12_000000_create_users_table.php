@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('lastname');
             $table->date('dob');
             $table->string('gender');
+            $table->string('image');
+            $table->string('Muncipality');
+            $table->string('Ward_No');
+            $table->string('House_Number');
+            $table->string('Street');
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('password');

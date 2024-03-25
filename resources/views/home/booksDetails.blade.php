@@ -45,7 +45,7 @@
                 
                     <div class="col-md-12">
                         <div class="cor-mid-img">
-                        <img src="{{ asset($books->image) }}" alt="Book Image" >
+                            <img src="{{ asset($books->image) }}" alt="Book Image" >
                         </div>
                         <div class="cor-con-mid">
                             <div class="cor-p1">
@@ -88,7 +88,11 @@
                             <p>Please carefully submit the dat to get the Books</p>
                         </div>
                         <div class="col-md-3 bb-link">
-                            <a href="course-details.html">Borrow Books</a>
+                            <form action="{{route("addCart",$books->id)}}" method="POST">
+                            @csrf
+
+                                <input type="Submit" value="Add to Cart">
+                            </form>
                         </div>
                     </div>
                 </div>
