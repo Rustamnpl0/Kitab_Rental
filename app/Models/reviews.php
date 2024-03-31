@@ -12,6 +12,6 @@ class reviews extends Model
     protected $fillable =[
         'Email',
         'comment',
-        'rating'
+        
     ];
 }

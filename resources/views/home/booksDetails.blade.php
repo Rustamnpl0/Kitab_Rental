@@ -100,8 +100,19 @@
         </div>
     </section>
                             <div class="cor-p6">
-                                <h3>Student Reviews</h3>
+                                <h3>Books Reviews</h3>
+                             
                                 <div class="cor-p6-revi">
+                                    <div class="cor-p6-revi-left">
+                                        <img src="images/4.jpg" alt="">
+                                    </div>
+                                    <div class="cor-p6-revi-right">
+                                        <h4>Rachel Britain</h4>
+                                        <span>Date: 12may, 2017</span>
+                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
+                                    </div>
+                              
+                                <!-- <div class="cor-p6-revi">
                                     <div class="cor-p6-revi-left">
                                         <img src="images/4.jpg" alt="">
                                     </div>
@@ -130,36 +141,30 @@
                                         <span>Date: 12may, 2017</span>
                                         <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
                                     </div>
-                                </div>
-                                <div class="cor-p6-revi">
-                                    <div class="cor-p6-revi-left">
-                                        <img src="images/4.jpg" alt="">
-                                    </div>
-                                    <div class="cor-p6-revi-right">
-                                        <h4>Rachel Britain</h4>
-                                        <span>Date: 12may, 2017</span>
-                                        <p>Mauris elementum et libero ac pharetra. Proin tristique dapibus tellus, lacinia blandit mi tincidunt at. Vivamus vitae interdum felis. Pellentesque congue mollis erat in imperdiet.</p>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
+
+
+
+
+
+
                             <div class="cor-p6">
                                 <h3>Write Reviews</h3>
                                 <div class="cor-p7-revi">
-                                    <form class="col s12">
+                                    <form class="col s12" action="{{route('addreview', ['Books_id' => $books->id])}}" name="productReview" id="productReview" method= "POST">
+                                        @csrf
                                         <div class="row">
+                                           
                                             <div class="input-field col s6">
-                                                <input type="text" class="validate">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <input type="text" class="validate">
+                                                <input type="text" class="validate"name="Email" value="{{ isset($stores) ? $stores->Email : '' }}">
                                                 <label>Email id</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <textarea class="materialize-textarea"></textarea>
-                                                <label>Message</label>
+                                                <textarea class="materialize-textarea" name="Comment" value="{{ isset($stores) ? $stores->Comment : '' }}"></textarea>
+                                                <label>Comment</label>
                                             </div>
                                         </div>
                                         <div class="row">

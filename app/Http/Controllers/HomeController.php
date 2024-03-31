@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Cart;
@@ -58,6 +58,15 @@ class HomeController extends Controller
             $user=auth()->user();
             $books=Books::find($id);
 
+            $user = User::firstOrCreate(
+                ['email' => $user->email],
+                [
+                    'firstname' => $user->firstname,
+                    'phone' => $user->phone,
+                    'address' => $user->address,
+                    // Add any other user details you want to save
+                ]
+            );
 
 
             $cart=new cart;
@@ -81,17 +90,26 @@ class HomeController extends Controller
 
 
     public function storeCart(){
-        $carts = DB::table('carts')->get();
- 
+        if (Auth::check()) { // Check if user is authenticated
+        $user = auth()->user();
+        $carts = Cart::where('email', $user->email)->get(); // Retrieve only the user's cart items
+
         return view('home.cart', compact('carts'));
-        
-     
+    } else {
+        return redirect('login');
+    }
     }
     public function deletecart($id){
-        $cart=DB::table('carts')->delete($id);
-        return back();
-
-    }
+        if (Auth::check()) { // Check if user is authenticated
+            $user = auth()->user();
+            $cart = Cart::where('email', $user->email)->findOrFail($id); // Find the cart item belonging to the user
+            $cart->delete();
+    
+            return redirect()->back()->with('success', 'Item removed from cart.');
+        } else {
+            return redirect('login');
+        }
+}
 
 
 
@@ -117,51 +135,48 @@ class HomeController extends Controller
 
 
 
-    public function addreview(Request $request)
+    public function addreview(Request $request,$Books_id)
     {
+        $userId = Auth::id();
         // Validate the form data
         $request->validate([
             'Email' => 'required|email',
-            'comment' => 'required',
-            'rating' => 'required|numeric|min:0|max:5' // Assuming the rating is between 0 and 5
-        ], [
-            'Email.required' => 'Email is required.',
-            'Email.email' => 'Invalid email format.',
-            'comment.required' => 'Comment is required.',
-            'rating.required' => 'Rating is required.',
-            'rating.numeric' => 'Rating must be a number.',
-            'rating.min' => 'Rating must be at least 0.',
-            'rating.max' => 'Rating must be at most 5.'
+            'Comment' => 'required',
+            // Assuming the rating is between 0 and 5
         ]);
-        try{
+        $currentDate = Carbon::now();
         $query =DB::table('reviews')->insert([
-         
-      
-            
+            'Books_id' => $Books_id,
+            'user_id' => $userId,
             'Email'=>$request->input('Email'),
-            'comment'=>$request->input('comment'),
-            'rating'=>$request->input('rating'),
-           
+            'Comment'=>$request->input('Comment'),
+            'rating' => 3,
+            'Date_of_rating' => $currentDate,
            ]);
-           return redirect()->back()->with('status', 'Rating added successfully.');
-        } catch (\Exception $e) {
-            // Log the error
-            \Log::error($e);
-    
-            return redirect()->back()->with('error', 'Something went wrong. Please try again later.');
-        }
+           if($query){
+            return back()->with('status','review added sucessfully');
+           }
+           else{
+            return back()->with('something wrong');
+           }
     }
 
     // Your other methods...
 
-    public function storereview() {
-      
-        $stores = reviews::all();
-   return view('admin.review',compact('stores'));
+    // public function storereview($Books_id) {
+    //     $stores = reviews::
+    //                 Where('Books_id', $Books_id)
+    //                 ->get();
 
+    // // Pass the reviews to the view
+    // return view('home.booksDetails', ['stores' => $stores,'Books_id' => $Books_id]);
        
-    }
+    // }
 
+    public function storereview() {
+    $stores = DB::table('reviews')->get();
+    return view('admin.review', ['stores' => $stores]);
+}
 
     public function userProfile(){
         $user=Auth::User();

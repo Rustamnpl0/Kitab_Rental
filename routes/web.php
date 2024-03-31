@@ -34,8 +34,7 @@ Route::middleware(['auth'])->group(function () {
    
     Route::get('/storeCart', [HomeController::class, 'storeCart'])->name('storeCart');
     Route::get('/userprofile', [HomeController::class, 'userprofile'])->name('userProfile');
-    Route::post('/addreview', [HomeController::class, 'addreview'])->name('addreview');
-    Route::get('/addreview', [HomeController::class, 'addreview'])->name('addreview');
+    Route::post('addreview/{Books_id}', [HomeController::class, 'addreview'])->name('addreview');
     Route::get('/review', [HomeController::class, 'review'])->name('review');
     Route::get('/reviewform', [HomeController::class, 'reviewform'])->name('reviewform');
     Route::get('/storereview', [HomeController::class, 'storereview']);

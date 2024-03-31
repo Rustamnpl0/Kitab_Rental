@@ -7,6 +7,10 @@
 </head>
 <body>
     @include ('home.header')
+
+
+
+    
     @include ('home.footer')
 </body>
 </html>

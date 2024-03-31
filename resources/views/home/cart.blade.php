@@ -81,7 +81,7 @@
                                                     <td>{{$cart->created_at}}</td>
 													
                                                     <td><a href="deletecart/{{$cart->id}}"><button class="btn btn-danger">Delete</button></a></td>
-                                                    <td><a href="delete_record/{{$cart->id}}"><button class="btn btn-success">Borrow</button></a></td>
+                                                    <td><a href="{{$cart->id}}"><button class="btn btn-success">Borrow</button></a></td>
 
                                                 </tr>
                                                 

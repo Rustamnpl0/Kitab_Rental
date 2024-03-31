@@ -91,7 +91,7 @@
   
  
         <div class="input-field col s12">
-            <input id="list-title" type="text" class="validate" name="BooksName" value="{{ isset($stores) ? $stores->BooksName : '' }}"">
+            <input id="list-title" type="text" class="validate" name="BooksName" value="{{ isset($stores) ? $stores->BooksName : '' }}">
             <label for="list-title">Books Name</label>
         </div>
         
