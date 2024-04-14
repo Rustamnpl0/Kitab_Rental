@@ -88,18 +88,20 @@
                         <p>Send Us Now</p>
                         <h2>GetIn Touch</h2> <span class="footer-ser-re">Service Request Form</span> </div>
                     <!-- ENQUIRY FORM -->
-                    <form id="contact_form" name="contact_form" action="">
+                    <form id="contact_form" name="contact_form" action="{{route("storeContact")}}" enctype="multipart/form-data"  method="POST">
+                    @csrf
                         <ul>
                             <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
-                                <input type="text" id="f1" value="" name="f1" placeholder="Name" required=""> </li>
+                                <input type="text" id="f1" value="" name="Name" placeholder="Name" required=""> </li>
                             <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
-                                <input type="text" id="f2" value="" name="f2" placeholder="Phone" required=""> </li>
+                                <input type="text" id="f2" value="" name="Phone" placeholder="Phone" required=""> </li>
                             <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
-                                <input type="text" id="f3" value="" name="f3" placeholder="City" required=""> </li>
+                                <input type="text" id="f3" value="" name="Email" placeholder="Email" required=""> </li>
                             <li class="col-md-6 col-sm-6 col-xs-12 contact-input-spac">
-                                <input type="text" id="f4" value="" name="f4" placeholder="Country" required=""> </li>
+                                <input type="text" id="f3" value="" name="Address" placeholder="Address" required=""> </li>
+                           
                             <li class="col-md-12 col-sm-12 col-xs-12 contact-input-spac">
-                                <textarea id="f5" name="f5" required=""></textarea>
+                                <textarea id="f5" name="Message" required=""></textarea>
                             </li>
                             <li class="col-md-6">
                                 <input type="submit" value="SUBMIT"> </li>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Books;
-
+use App\Models\Donations;
+use App\Models\Contact;
+use App\Models\reviews;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class booksController extends Controller
@@ -32,6 +34,8 @@ class booksController extends Controller
                 'isAvailable'=>'required',
                 
         ]);
+        // dd($request->all());
+
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
 
@@ -109,5 +113,38 @@ class booksController extends Controller
     //     return view('booksDetails', compact('booksDetail'));
     // }
 
-   
+   public function adminreviews(){
+    
+    $stores = reviews::all();
+    return view('admin.adminreviews',compact('stores'));
+
+        
+   }
+
+
+
+
+   public function adminDonate(){
+    $stores = Donations::all();
+    // return view('admin.adminreviews',compact('stores'));
+    return view('admin.adminDonate' , compact('stores'));
+} 
+public function deleteDonation($id){
+    Donations::destroy($id);
+    return back();
+}
+
+
+// public function adminContact(){
+//     $storesContact = Contact::all();
+//     return view('admin.adminContact' , compact('storesContact'));
+// } 
+// public function showNotifications()
+// {
+//     // Retrieve the count of donations
+//     $donationCount = Donations::count();
+
+//     // Pass the count to the view
+//     return view('notifications', ['donationCount' => $donationCount]);
+// }
 }

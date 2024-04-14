@@ -37,10 +37,10 @@ class HomeController extends Controller
     }
    
     
-    // public function homepage(){
-    //     $books = Books::all();
-    //     return view('home.homepage',compact('books'));
-    // } 
+     public function messagePage(){
+     
+        return view('admin.messagepage');
+     } 
 
     public function aboutUs(){
         return view('home.aboutus');
@@ -234,9 +234,7 @@ class HomeController extends Controller
     
 // Admin controller
 
-    public function adminBooks(){
-        return view('admin.adminBooks');
-    } 
+   
     public function adminEditBooks(){
         return view('admin.adminEditBooks');
     } 

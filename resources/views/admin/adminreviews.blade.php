@@ -3,7 +3,7 @@
 
 
 <head>
-    <title>Cart</title>
+    <title>Available Books</title>
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,15 +27,19 @@
 
 <body>
     <!--== MAIN CONTRAINER ==-->
-   @include('home.header')
+   @include('admin.adminRightHeader')
             <!--== BODY INNER CONTAINER ==-->
             <div class="sb2-2">
                 <!--== breadcrumbs ==-->
                 <div class="sb2-2-2">
                     <ul>
-                        <li><a href="{{route('homepage')}}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        <li><a href="index-2.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                         </li>
-                       
+                        <li class="active-bre"><a href="#"> Dashboard</a>
+                        </li>
+                        <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
                 </div>
 
                 <!--== User Details ==-->
@@ -44,8 +48,8 @@
                         <div class="col-md-12">
                             <div class="box-inn-sp">
                                 <div class="inn-title">
-                                    <h4> Details</h4>
-                                
+                                    <h4>Review Details</h4>
+                                    <p>The review of the books that the user added to the books details</p>
                                 </div>
                                 <div class="tab-inn">
                                     <div class="table-responsive table-desi">
@@ -53,40 +57,39 @@
                                         <table class="table ">
                                             <thead>    
                                                 <tr>
-                                                    <th scope ="col">Cart ID</th>
-                                                    <th scope ="col">Books Image</th>
-                                                    <th scope ="col">User Name </th>
-                                                    <th scope ="col">Phone</th>
-													<th scope ="col">Email</th>
-                                                    <th scope ="col">Address</th>
-													<th scope ="col">Book Name</th>
-                                                    <th scope ="col">Price</th>
-													<th scope ="col">Created At</th>
+                                                    <th scope ="col">ID</th>
+                                                    <th scope ="col">Books ID</th>
+                                                    <th scope ="col">Comment</th>
+													<th scope ="col">Date OF Rating</th>
+                                                    <th scope ="col">rating</th>
+													<th scope ="col">email</th>
+                                                    <th scope ="col">User ID</th>
+                                                    <th scope ="col">Status</th>
+													
 													
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                
-                                                @foreach($carts as $cart)
+                                                <!-- @if(!empty($stores)) -->
+                                                    @foreach($stores as $texts)
                                                 <tr>
-                                                    <th>{{$cart->id}}</th>
-                                                    <td><img src="{{$cart->image}}" alt="Book Image"  width="80" height="60"></td>
-                                                    <td>{{$cart->firstname}}</td>
-                                                    <td>{{$cart->email}}</td>
-                                                    <td>{{$cart->phone}}</td>
-                                                    <td>{{$cart->address}}</td>
-                                                    <td>{{$cart->BooksName}}</td>
-													<td>{{$cart->price}}</td>
-            
-                                                    <td>{{$cart->created_at}}</td>
-													
-                                                    <td><a href="deletecart/{{$cart->id}}"><button class="btn btn-danger">Delete</button></a></td>
-                                                    <td><a href="{{route('payment.checkout')}}"><button class="btn btn-success">Pay with khalti</button></a></td>
-
+                                                    <th>{{$texts->id}}</th>
+                                                    <td>{{$texts->Books_id}}</td>
+                                                    <td>{{$texts->comment}}</td>
+                                                    <td>{{$texts->Date_of_rating}}</td>
+                                                    <td>{{$texts->rating}}</td>
+                                                    <td>{{$texts->email}}</td>
+													<td>{{$texts->user_id}}</td>
+                                                    <td>{{$texts->status}}</td>
+                                                    
+													<td><a href="edit_records/{{$texts->id}}"  class="btn btn-primary">Edit</a></td>
+                                                    <td><a href="delete_record/{{$texts->id}}"><button class="btn btn-danger">Delete</button></a></td>
                                                 </tr>
                                                 
-                                             @endforeach
-                                                
+                                                    @endforeach
+                                                <!-- @else -->
+                                                <!-- <tr><td>Not added.</td> </tr> -->
+                                                <!-- @endif -->
                                             </tbody>
                                         </table>
                                     </div>

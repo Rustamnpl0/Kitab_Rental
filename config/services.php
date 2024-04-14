@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'khalti' => [
+        'public_key' => env('KHALTI_PUBLIC_KEY', null),
+        'secret_key' => env('KHALTI_SECRET_KEY', null)
+    ],
 ];
+ 

@@ -17,9 +17,9 @@
             <!--== NOTIFICATION ==-->
             <div class="col-md-2 tab-hide">
                 <div class="top-not-cen">
-                    <a class='waves-effect btn-noti' href="admin-all-enquiry.html" title="all enquiry messages"><i class="fa fa-commenting-o" aria-hidden="true"></i><span>5</span></a>
-                    <a class='waves-effect btn-noti' href="admin-course-enquiry.html" title="course booking messages"><i class="fa fa-envelope-o" aria-hidden="true"></i><span>5</span></a>
-                    <a class='waves-effect btn-noti' href="admin-admission-enquiry.html" title="admission enquiry"><i class="fa fa-tag" aria-hidden="true"></i><span>5</span></a>
+                    <a class='waves-effect btn-noti' href="{{route('adminDonate')}}" title="Donation Request"><i class="fa fa-commenting-o" aria-hidden="true"></i><span>5</span></a>
+                    <a class='waves-effect btn-noti' href="admin-course-enquiry.html" title="Books Enquiry"><i class="fa fa-envelope-o" aria-hidden="true"></i><span>5</span></a>
+                    <a class='waves-effect btn-noti' href="{{route('adminreviews')}}" title="Book Review"><i class="fa fa-tag" aria-hidden="true"></i><span>5</span></a>
                 </div>
             </div>
             <!--== MY ACCCOUNT ==-->
@@ -87,50 +87,29 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bookmark-o" aria-hidden="true"></i>All Pages</a>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bookmark-o" aria-hidden="true"></i>Reviews</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="admin-page-all.html">Pages</a>
+                                    <li><a href="{{route('adminreviews')}}">reviews</a>
                                     </li>
-                                    <li><a href="admin-page-add.html">Create New Page</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars" aria-hidden="true"></i> Menu</a>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars" aria-hidden="true"></i> Donation</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="admin-main-menu.html">Main menu</a></li>
-									<li><a href="admin-about-menu.html">About menu</a></li>
-									<li><a href="admin-admission-menu.html">Admission menu</a></li>
-									<li><a href="admin-all-menu.html">All page menu</a></li>
+                                    <li><a href="{{route('adminDonate')}}">Donate Books</a></li>
+									
                                 </ul>
                             </div>
                         </li>
-						<li><a href="admin-slider.html"><i class="fa fa-image" aria-hidden="true"></i> Slider</a>
-                        </li>
-						<li><a href="admin-quick-link.html"><i class="fa fa-external-link-square" aria-hidden="true"></i> Slider quick link</a>
-                        </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="admin-event-all.html">All Events</a>
-                                    </li>
-                                    <li><a href="admin-event-add.html">Create New Events</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        
+						
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-commenting-o" aria-hidden="true"></i> Enquiry</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="admin-all-enquiry.html">All Enquiry</a></li>
-									<li><a href="admin-course-enquiry.html">Course Enquiry</a></li>
-									<li><a href="admin-admission-enquiry.html">Admission Enquiry</a></li>
-									<li><a href="admin-seminar-enquiry.html">Seminar Enquiry</a></li>
-									<li><a href="admin-event-enquiry.html">Event Enquiry</a></li>
-									<li><a href="admin-common-enquiry.html">Common Enquiry</a></li>
+                                    <!-- <li><a href="admin-all-enquiry.html">Company enquiry</a></li> -->
+									<li><a href="{{route('adminContact')}}"> Enquiry</a></li>
                                 </ul>
                             </div>
                         </li>
