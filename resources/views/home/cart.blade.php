@@ -81,7 +81,7 @@
                                                     <td>{{$cart->created_at}}</td>
 													
                                                     <td><a href="deletecart/{{$cart->id}}"><button class="btn btn-danger">Delete</button></a></td>
-                                                    <td><a href="{{route('payment.checkout')}}"><button class="btn btn-success">Pay with khalti</button></a></td>
+                                                    <td><a href="{{route('payment.checkout', $cart->id)}}"><button class="btn btn-success">Pay with khalti</button></a></td>
 
                                                 </tr>
                                                 

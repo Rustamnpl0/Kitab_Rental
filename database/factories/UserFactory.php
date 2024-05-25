@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,11 +25,19 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+             'firstname'      => fake()->firstNameMale,
+             'lastname'       => fake()->lastName,
+             'dob'            => Carbon::now()->subYears(23),
+             'image'          => fake()->name,
+             'gender'         => 'male',
+             'Muncipality'    => fake()->city,
+             'Ward_No'        => fake()->numberBetween(1, 20),
+             'House_Number'  => fake()->numberBetween(200),
+             'Street'         => fake()->streetName,
+             'email'          => fake()->unique()->safeEmail(),
+             'phone'          => fake()->phoneNumber,
+             'password'       => static::$password ??= Hash::make('password'),
+             'remember_token' => Str::random(10),
         ];
     }
 

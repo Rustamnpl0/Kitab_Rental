@@ -43,7 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/storereview', [HomeController::class, 'storereview']);
     Route::get('search', [HomeController::class, 'search'])->name('search');
 
-    Route::get('/payment-checkout',[PaymentController::class,'paymentCheckout'])->name('payment.checkout');
+    Route::get('/payment-checkout/{cart}',[PaymentController::class,'paymentCheckout'])->name('payment.checkout');
+     Route::get('/payment-success/{cart_id}',[PaymentController::class,'success'])->name('payment.success');
+
 });
 
 

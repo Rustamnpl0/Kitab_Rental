@@ -1,17 +1,17 @@
 <?php
 namespace App\Services\Payment;
 use Illuminate\Support\Facades\Http;
-use App\Builders\UserBuilder;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
-class HeaderService
-{
+class KhaltiService{
+  protected const BASE_URL = "https://a.khalti.com/api/v2";
   public function initiatePayment(string $url,array $payload)
 {
+    $key = config('services.khalti.secret_key');
     $response = Http::withHeaders([
         'Content-Type' => 'application/json',
-        'Authorization' => 'Key de96e1679a244f81a2357968833c052f', // Replace with your actual authorization token
+        'Authorization' => 'Key ', // Replace with your actual authorization token
     ])->post($url, $payload);
     return $response;
 }

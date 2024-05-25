@@ -21,7 +21,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <!-- RESPONSIVE.CSS ONLY FOR MOBILE AND TABLET VIEWS -->
     <link href="css/style-mob.css" rel="stylesheet" />
-    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 
 <body>
@@ -279,9 +279,10 @@
     </section>
 
     <!-- FOOTER COURSE BOOKING -->
+        @dd(session('toastr.success'));
     <section>
         @include('home.review')
-    @include('home.footer')
+        @include('home.footer')
     </section>
 
     <!--Import jQuery before materialize.js-->
@@ -289,6 +290,15 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            @if(session('toastr.success'))
+                toastr.success("{{session('toastr.success')}}");
+            @endif
+            @if(session('toastr.error'))
+            toastr.error("{{session('toastr.error')}}");
+            @endif
+        </script>
 </body>
 
 </html>
